@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <!-- Author: Christian Ludwig Hansen 
+        Description: Portfolio website for Christian Ludwig Hansen 
+        Date: 26.11.2025-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLH Portfolio</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="./Fonts/ApfelGrotezk-Fett.woff" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="main.js"></script>
+    <script src="menu.js" defer></script>
+</head>
+
+<body id="app" class="flex flex-col items-center">
+    <header class="flex align-bottom justify-between bg-gray-950 text-gray-50 w-full fixed z-1000">
+        <h1 class="text-6xl "><a href="index.html" class="ml-6">HANSEN</a></h1>
+        <nav class="flex md:items-center">
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle-btn" class="md:hidden flex items-center gap-2 pr-4">
+                <span id="menuText" class="text-2xl">Menu</span>
+                <img src="Navicon.png" alt="menu-icon" id="menu-icon">
+            </button>
+
+            <!-- Navigation Menu -->
+            <ul id="mobileMenuList" class="mobile-menu text-4xl md:text-2xl md:gap-6 md:relative md:flex-row ">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="flex flex-col items-center snap-y overflow-y-scroll">
+        
+        <section id="home" tabindex="0"
+            class="h-screen flex flex-col justify-around gap-11 snap-start">
+
+            <div class="name-title  ml-4">
+                <h2 class="text-5xl">Christian Ludwig <br> Hansen</h2>
+                <h3 class="text-2xl">Full Stack Web Developer</h3>
+            </div>
+            <div
+                class="fixed inset-0 flex items-center justify-center -z-1 ${isClickable ? 'pointer-events-auto' : 'pointer-events-none'}">
+                <img src="src\images\Head Start.png" class="">
+            </div>
+            <div class="tag-line">
+                <h4 class="m-4 text-2xl">One <span class="text-indigo-700">Stop</span> for your Web Shop</h4>
+                <p class="m-5 text-l lg:text-xl">
+                    I specialize in all things Web, giving you a
+                    convenient and cohesive collaborator
+                    for any professional or passion project
+                    of yours.
+                    <br>
+                    <br>
+                    From Design to Implementation.<br>
+                    From Front to Back (end).<br>
+                    I got it covered.
+                </p>
+            </div>
+        </section>
+        <section id="work" tabindex="0" class="h-screen snap-start">
+            <h2 class="text-5xl text-gray-50 text-center m-auto relative top-33.5">Work</h2>
+            <img src="src\images\Halftone circle.png" alt="Click for Projects" class="m-auto">
+            <div id="work-card-container" class="w-full xl:w-60 z-100 flex flex-col lg:flex-row justify-around gap-10">
+                <div class="m-auto">
+                    <p class="relative top-10  m-auto text-2xl p-2 rounded-t-xl bg-gray-50 text-center text-nowrap z-2">Example Project Title 1</p>
+                    <p class="relative top-10  m-auto text-center rounded-b-xl bg-gray-950 text-gray-50 z-2">A brief Project Description</p>
+                    <img src="src\images\acmetravel.png" class="rounded-xl blur-xs z-1 hover:blur-none focus:blur-none">
+                </div>
+
+            </div>
+        </section>
+        <section id="about" tabindex="0" class="h-screen snap-start bg-gray-950 w-screen">
+            <div class="m-4">
+                <h2 class="text-5xl text-gray-950 text-center m-auto relative top-33.5">About</h2>
+                <img src="src\images\Halftone circle white.png" alt="" class="m-auto">
+            </div>
+            <p class="text-gray-50 max-w-3/4 m-auto p-3 text-center">
+                I’m from a small town in Northern Germany by the Danish border, an area called North Friesland.
+                I now live in Kjipuktuk, Halifax NS, Canada.
+                <br>
+                I’ve worked as a Freelance Video Designer since 2021 and am now pursuing the Full stack Web Dev program
+                at
+                NSCC
+                <br>
+                I love Cycling, Volleyball, Badminton, getting into new hobbies, and my cat Bjorn.
+            </p>
+            <div id="SkillsContainer" class="w-3/5 m-auto p-3 flex flex-row flex-wrap gap-4">
+                <p v-for="skill in skills" class="bg-gray-50 text-gray-950 rounded-full pl-2 pr-2 text-nowrap">
+                    {{skill.name}}</p>
+            </div>
+        </section>
+        <section id="resume" tabindex="0" class="h-screen snap-start">
+            <h2 class="text-5xl text-gray-950 text-center m-auto relative top-33.5">Resume</h2>
+            <a href="Christian Ludwig Hansen -  NS Power Resume.pdf" download alt="" class=""><img
+                    src="./src/images/resume image.png" alt="Christians resume, click to download"
+                    class=" h-100 object-scale-down mt-45 blur-xs hover:blur-none focus:blur-none border-2 border-indigo-700"></a>
+        </section>
+        <section id="contact" class="h-screen w-screen">
+            <div id="background-image"
+                class="bg-center bg-no-repeat bg-[url('/src/images/myownHalftoneLinearGradient.png')] bg-blend-multiply bg-cover h-1/3 w-screen object shadow-2xl shadow-g">
+            </div>
+            <div id="background-color" tabindex="0" class="snap-start text-center" style="background-color: black;">
+            
+            <h2 class="text-5xl text-gray-50 text-center m-auto ">Contact</h2>
+            <p class=" text-gray-50 mt-12 text-xl">Email:</p>
+            <a href="mailto:christian.ludwig.hansen@example.com"
+                class="bg-gray-50 text-gray-950 rounded-full pl-2 pr-2 text-nowrap">christian.ludwig.hansen@example.com</a>
+            <p class=" text-gray-50 text-xl">Socials</p>
+            <ul class="flex flex-row align-middle justify-center gap-3 pb-10">
+                <li><a href="#" target="_blank"
+                        class="bg-gray-50 text-gray-950 rounded-full pl-2 pr-2 text-nowrap">LinkedIn</a></li>
+                <li><a href="#" target="_blank"
+                        class="bg-gray-50 text-gray-950 rounded-full pl-2 pr-2 text-nowrap">GitHub</a></li>
+                <li><a href="#" target="_blank"
+                        class="bg-gray-50 text-gray-950 rounded-full pl-2 pr-2 text-nowrap">Instagram</a></li>
+            </ul>
+            </div>
+            <div id="background-image"
+                class="bg-center bg-no-repeat bg-[url('/src/images/myownHalftoneLinearGradientRotated.png')] bg-blend-multiply bg-cover h-1/3 w-screen object">
+            </div>
+            
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 HANSEN</p>
+    </footer>
+</body>
+
+</html>

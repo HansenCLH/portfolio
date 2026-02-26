@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio",
+  "main": "server/index.ts", // Points to the Worker backend entry file
+  "compatibility_date": "2026-02-25", // Set this to today's date for consistent behavior
+  "assets": {
+    "directory": "./dist", // Directory where Vite outputs static assets
+    "not_found_handling": "single-page-application" // Routes not matching assets go to the Worker
+  }
+}
